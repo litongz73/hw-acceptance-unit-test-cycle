@@ -1,0 +1,1 @@
+rspec spec/ > Lastname_firstname_rspec_log.txtCoverage report generated for Cucumber Features, RSpec to /home/ec2-user/environment/hw-acceptance-unit-test-cycle/rottenpotatoes/coverage. 55 / 55 LOC (100.0%) covered.
