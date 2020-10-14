@@ -21,7 +21,7 @@ describe MoviesController do
     end
   end
 
-  describe 'GET index' do
+  describe 'get index' do
     let!(:movie) {FactoryGirl.create(:movie)}
 
     it 'should render the index template' do
@@ -40,7 +40,7 @@ describe MoviesController do
     end
   end
 
-  describe 'GET new' do
+  describe 'get new' do
     let!(:movie) { Movie.new }
 
     it 'should render the new template' do
@@ -49,10 +49,9 @@ describe MoviesController do
     end
   end
 
-  describe 'POST #create' do
+  describe 'post #create' do
     it 'creates a new movie' do
-      expect {post :create, movie: FactoryGirl.attributes_for(:movie)
-      }.to change { Movie.count }.by(1)
+      expect {post :create, movie: FactoryGirl.attributes_for(:movie)}.to change { Movie.count }.by(1)
     end
 
     it 'redirects to the movie index page' do
@@ -61,7 +60,7 @@ describe MoviesController do
     end
   end
 
-  describe 'GET #show' do
+  describe 'get #show' do
     let!(:movie) { FactoryGirl.create(:movie) }
     before(:each) do
       get :show, id: movie.id
@@ -76,7 +75,7 @@ describe MoviesController do
     end
   end
 
-  describe 'GET #edit' do
+  describe 'get #edit' do
     let!(:movie) { FactoryGirl.create(:movie) }
     before do
       get :edit, id: movie.id
@@ -91,7 +90,7 @@ describe MoviesController do
     end
   end
 
-  describe 'PUT #update' do
+  describe 'put #update' do
     let(:movie1) { FactoryGirl.create(:movie) }
     before(:each) do
       put :update, id: movie1.id, movie: FactoryGirl.attributes_for(:movie, title: 'Modified')
@@ -107,7 +106,7 @@ describe MoviesController do
     end
   end
 
-  describe 'DELETE #destroy' do
+  describe 'delete #destroy' do
     let!(:movie1) { FactoryGirl.create(:movie) }
 
     it 'destroys a movie' do
