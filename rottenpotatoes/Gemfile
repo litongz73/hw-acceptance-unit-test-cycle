@@ -15,8 +15,11 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', '~> 0.14.0', :require => false
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
+  gem 'factory_girl_rails', '~> 4.7'
+  
 end
 group :production do
   #gem 'pg'
