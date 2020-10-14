@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def movie_params
-    params.require(:movie).permit(:title, :rating, :description, :release_date)
+    params.require(:movie).permit(:title, :rating, :director, :description, :release_date)
   end
 
   def show
@@ -46,7 +46,15 @@ class MoviesController < ApplicationController
   def edit
     @movie = Movie.find params[:id]
   end
-
+  
+  def search
+    @similar_movies = Movie.similar_movies(params[:title])
+    if @similar_movies.nil?
+      redirect_to root_url, alert: "'#{params[:title]}' has no director info"
+    end
+    @movie = Movie.find_by(title: params[:title])
+  end
+  
   def update
     @movie = Movie.find params[:id]
     @movie.update_attributes!(movie_params)
